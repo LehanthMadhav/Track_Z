@@ -7,8 +7,8 @@ import {
   ClipboardList,
 } from "lucide-react";
 
-import StatCard from "@/components/Dashboard/StatCard";
-import TrackerCard from "@/components/Dashboard/TrackerCard";
+import StatCard from "@/components/dashboard/StatCard";
+import TrackerCard from "@/components/dashboard/TrackerCard";
 import { activeTrackers } from "@/data/dashboard";
 
 const stats = [

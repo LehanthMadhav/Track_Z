@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   CirclePlus,
@@ -61,6 +64,7 @@ const menuItems = [
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
   return (
     <aside className="flex min-h-screen w-60 flex-col bg-slate-950 p-4 text-white">
 
@@ -86,17 +90,21 @@ export default function Sidebar() {
       {/* Navigation */}
       <nav className="space-y-2">
 
-        {menuItems.map((item, index) => {
+        {menuItems.map((item) => {
           const Icon = item.icon;
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(item.href);
 
           return (
             <Link
               key={item.name}
               href={item.href}
-              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition ${
-                index === 0
+              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition ${
+                isActive
                   ? "bg-violet-600/30 text-white"
-                  : "text-slate-300 hover:bg-slate-800"
+                  : "text-slate-300 hover:bg-slate-800 hover:text-white"
               }`}
             >
               <Icon size={18} />
