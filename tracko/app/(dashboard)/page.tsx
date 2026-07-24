@@ -8,8 +8,7 @@ import {
 } from "lucide-react";
 
 import StatCard from "@/components/dashboard/StatCard";
-import TrackerCard from "@/components/dashboard/TrackerCard";
-import { activeTrackers } from "@/data/dashboard";
+import ActiveTrackers from "@/components/dashboard/ActiveTrackers";
 
 const stats = [
   {
@@ -83,31 +82,7 @@ export default function DashboardPage() {
         ))}
       </section>
 
-      <section className="space-y-4">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h2 className="text-lg font-semibold text-slate-950">
-              Active trackers
-            </h2>
-            <p className="text-sm text-slate-500">
-              The latest opportunities waiting for follow-up.
-            </p>
-          </div>
-
-          <Link
-            href="/opportunities/new"
-            className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
-          >
-            Add another
-          </Link>
-        </div>
-
-        <div className="space-y-3">
-          {activeTrackers.map((tracker) => (
-            <TrackerCard key={tracker.id} {...tracker} />
-          ))}
-        </div>
-      </section>
+      <ActiveTrackers />
     </main>
   );
 }

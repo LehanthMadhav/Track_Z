@@ -1,13 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Bot, FilePenLine, Info } from "lucide-react";
 
 type Method = "manual" | "automatic";
 
 export default function ChooseMethod() {
+  const router = useRouter();
   const [selectedMethod, setSelectedMethod] =
     useState<Method>("manual");
+
+  function handleContinue() {
+    router.push(
+      selectedMethod === "manual"
+        ? "/opportunities/new/manual"
+        : "/opportunities/new/automatic",
+    );
+  }
 
   return (
     <section className="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -92,6 +102,7 @@ export default function ChooseMethod() {
 
         <button
           type="button"
+          onClick={() => router.push("/")}
           className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
         >
           Cancel
@@ -99,6 +110,7 @@ export default function ChooseMethod() {
 
         <button
           type="button"
+          onClick={handleContinue}
           className="rounded-lg bg-violet-600 px-5 py-2 text-sm font-medium text-white hover:bg-violet-700"
         >
           Continue

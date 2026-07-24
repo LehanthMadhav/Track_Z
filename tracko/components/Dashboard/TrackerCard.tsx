@@ -1,4 +1,4 @@
-import { Eye, Pencil, MoreVertical } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 interface TrackerCardProps {
   title: string;
@@ -8,6 +8,7 @@ interface TrackerCardProps {
   reminder: string;
   reminderNote: string;
   status: string;
+  onComplete?: () => void;
 }
 
 export default function TrackerCard({
@@ -18,6 +19,7 @@ export default function TrackerCard({
   reminder,
   reminderNote,
   status,
+  onComplete,
 }: TrackerCardProps) {
   return (
     <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -85,22 +87,16 @@ export default function TrackerCard({
 
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3 text-slate-500">
-
-          <button className="transition hover:text-violet-600">
-            <Eye size={17} />
+        {onComplete && (
+          <button
+            type="button"
+            onClick={onComplete}
+            className="inline-flex items-center gap-2 rounded-lg border border-green-200 px-3 py-2 text-xs font-medium text-green-700 transition hover:bg-green-50"
+          >
+            <CheckCircle2 size={16} />
+            Complete
           </button>
-
-          <button className="transition hover:text-violet-600">
-            <Pencil size={17} />
-          </button>
-
-          <button className="transition hover:text-violet-600">
-            <MoreVertical size={17} />
-          </button>
-
-        </div>
+        )}
 
       </div>
 
