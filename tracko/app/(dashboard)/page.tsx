@@ -41,7 +41,7 @@ export default function DashboardPage() {
         <div className="flex flex-col gap-6 bg-[radial-gradient(circle_at_top_right,_rgba(15,23,42,0.08),_transparent_35%),linear-gradient(135deg,_rgba(15,23,42,0.02),_rgba(255,255,255,0.95))] p-8 lg:p-10 xl:flex-row xl:items-end xl:justify-between">
           <div className="max-w-2xl space-y-4">
             <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-medium tracking-wide text-white">
-              TrackO dashboard
+              TRACKO dashboard
             </span>
 
             <div className="space-y-2">
